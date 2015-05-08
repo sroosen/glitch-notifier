@@ -14,7 +14,7 @@ namespace Glitch.Notifier.AspNet
 
         public GlitchHttpModule()
         {
-            ErrorProfile = "glitch/v1.net.asp";
+            ErrorProfile = "glitch-v1-net-asp";
         }
 
         public string ErrorProfile { get; set; }

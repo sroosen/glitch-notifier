@@ -21,9 +21,8 @@ namespace Glitch.Notifier.Tests.CoreSpecifications.IntegrationSpecifications
         [TestMethod]
         public void Should_succeed()
         {
-            Glitch.Config.WithHttps(false)
-                .WithApiKey("4b5edd5ccef34e999ab6a40798f68de1")
-                //.WithApiKey("72b46c3926ef438696a48238b777aa8f")
+            Glitch.Config.WithApiUrl("http://localhost:1289/v1/errors")
+                .WithApiKey("6b36472946f04a32805a35fead592856")
                 .WithNotificationsMaxBatchSize(2);
             ErrorQueue.Clear();
 

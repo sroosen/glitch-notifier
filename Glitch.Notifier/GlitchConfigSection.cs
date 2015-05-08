@@ -5,6 +5,19 @@ namespace Glitch.Notifier
 {
     public class GlitchConfigSection : ConfigurationSection
     {
+        [ConfigurationProperty("apiUrl", DefaultValue = "", IsRequired = true)]
+        public string ApiUrl
+        {
+            get
+            {
+                return (string)this["apiUrl"];
+            }
+            set
+            {
+                this["apiUrl"] = value;
+            }
+        }
+
         [ConfigurationProperty("apiKey", DefaultValue = "", IsRequired = true)]
         public string ApiKey
         {
@@ -15,19 +28,6 @@ namespace Glitch.Notifier
             set
             {
                 this["apiKey"] = value;
-            }
-        }
-
-        [ConfigurationProperty("useHttps", DefaultValue = "false")]
-        public bool UseHttps
-        {
-            get
-            {
-                return (bool)this["useHttps"];
-            }
-            set
-            {
-                this["useHttps"] = value;
             }
         }
 

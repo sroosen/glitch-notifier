@@ -3,7 +3,7 @@
   <metadata>
      <id>Glitch.Notifier.AspNet</id>
     <version>0.1.0</version>
-    <authors>Javier Crespo / Stijn Roosen</authors>
+    <authors>Stijn Roosen</authors>
     <owners>Glitch.io</owners>
     <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
     <projectUrl>https://github.com/glitchio/glitch-dotnet</projectUrl>

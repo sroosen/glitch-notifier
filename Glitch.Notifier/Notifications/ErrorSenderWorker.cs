@@ -44,7 +44,7 @@ namespace Glitch.Notifier.Notifications
 
         private WebRequest CreateRequest()
         {
-            var request = HttpWebRequest.Create(Glitch.Config.Url);
+            var request = WebRequest.Create(Glitch.Config.ApiUrl);
             request.SetApiKey(Glitch.Config.ApiKey);
             request.Method = "POST";
             request.ContentType = "application/json";

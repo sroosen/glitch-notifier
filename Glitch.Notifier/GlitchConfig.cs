@@ -10,8 +10,8 @@ namespace Glitch.Notifier
         public GlitchConfig(GlitchConfigSection section)
         {
             if (section == null) return;
+            WithApiUrl(section.ApiUrl);
             WithApiKey(section.ApiKey);
-            WithHttps(section.UseHttps);
             WithNotificationsMaxBatchSize(section.NotificationsMaxBatchSize);
             WithNotificationsMaxInterval(TimeSpan.FromMinutes(section.NotificationsMaxIntervalInMinutes));
             SendNotifications(section.Notify);
@@ -31,9 +31,9 @@ namespace Glitch.Notifier
             return this;
         }
 
-        public GlitchConfig WithHttps(bool https)
+        public GlitchConfig WithApiUrl(string apiUrl)
         {
-            IsHttps = https;
+            ApiUrl = apiUrl;
             return this;
         }
 
@@ -70,6 +70,8 @@ namespace Glitch.Notifier
             return this;
         }
 
+        public string ApiUrl { get; private set; }
+
         public string ApiKey { get; private set; }
 
         public bool IsHttps { get; private set; }
@@ -81,25 +83,11 @@ namespace Glitch.Notifier
             private set { _notify = value; }
         }
 
-        private string _errorProfile = "glitch/v1.net.default";
+        private string _errorProfile = "glitch-v1-net-default";
         public string ErrorProfile
         {
             get { return _errorProfile; }
             private set { _errorProfile = value; }
-        }
-
-        internal string Url
-        {
-            get
-            {
-                return Glitch.Config.Scheme + "://api.glitch.io/v1/errors";
-                //return Glitch.Config.Scheme + "://localhost:1289/v1/errors";
-            }
-        }
-
-        private string Scheme
-        {
-            get { return IsHttps ? "https" : "http"; }
         }
 
         private readonly ErrorFilter _ignoreErrors = new ErrorFilter();
